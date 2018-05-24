@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.lucky.dao.mapper.UserMapper">
+
+    <resultMap id="getUser" type="com.lucky.pojo.UserInfo">
+        <id column="user_id" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="mobile" property="mobile"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+
+    <!--根据id查询用户-->
+    <select id="selectUserById" parameterType="Long" resultMap="getUser">
+        SELECT
+        user_id,
+        username,
+        email,
+        mobile,
+        update_time
+        FROM
+        user
+        WHERE
+        user_id = #{userId}
+    </select>
+
+
+</mapper>
