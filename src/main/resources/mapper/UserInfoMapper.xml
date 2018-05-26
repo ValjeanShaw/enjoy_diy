@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- namespace必须指向Dao接口 -->
-<mapper namespace="com.lucky.dao.mapper.UserMapper">
+<mapper namespace="com.lucky.dao.mapper.UserInfoMapper">
 
     <resultMap id="getUser" type="com.lucky.pojo.UserInfo">
         <id column="user_id" property="userId"/>
@@ -24,7 +24,7 @@
         mobile,
         update_time
         FROM
-        user
+        user_info
         WHERE
         user_id = #{userId}
     </select>

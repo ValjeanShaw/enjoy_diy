@@ -1,5 +1,6 @@
 package com.lucky.service;
 
+import com.lucky.exception.BaseException;
 import com.lucky.model.output.UserGetByIdOutput;
 
 /**
@@ -13,5 +14,5 @@ public interface UserService {
      * @param userId
      * @return
      */
-    public UserGetByIdOutput getUserById(Long userId);
+    public UserGetByIdOutput getUserById(Long userId) throws BaseException;
 }

@@ -1,5 +1,6 @@
 package com.lucky.controller;
 
+import com.lucky.exception.BaseException;
 import com.lucky.model.output.UserGetByIdOutput;
 import com.lucky.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,11 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value="/{id}", method= RequestMethod.GET)
-    public UserGetByIdOutput getUserById(@PathVariable Long id){
-        if(id == null){
-            return null;
-        }
+    public UserGetByIdOutput getUserById(@PathVariable Long id) throws Exception{
         try{
             return userService.getUserById(id);
         }catch (Exception e){
-            return null;
+            throw new BaseException(e.getMessage());
         }
     }
 }

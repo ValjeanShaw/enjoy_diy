@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Mapper
 @Component
-public interface UserMapper {
+public interface UserInfoMapper {
 
     /**
      * 根据id查询用户信息
