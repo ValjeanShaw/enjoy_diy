@@ -21,3 +21,13 @@
 
 加入接口的swaggerui
 
+### log4j2日志方式
+
+采用xml方式，配置log4j2的日志
+
+slf4j-log4j2的方式打印
+
+含三种格式
+1.CONSOLE
+2.file
+3.rollingFile
