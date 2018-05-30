@@ -42,3 +42,10 @@ pom中war包方式改为jar包方式，打包和编译均采用maven方式
 
 采用Thymeleaf模板渲染界面。
 加入一个示例方法 index 界面
+
+
+### 自定义注解
+
+加入一个自定义注解，并将其使用方法做个实例
+
+详见 test -> annotation包
