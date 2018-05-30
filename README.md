@@ -31,3 +31,14 @@ slf4j-log4j2的方式打印
 1.CONSOLE
 2.file
 3.rollingFile
+
+### 采用jar包方式运行
+
+pom中war包方式改为jar包方式，打包和编译均采用maven方式
+
+运行方式： `java -jar xxx.jar`
+
+### 加入Thymeleaf方式
+
+采用Thymeleaf模板渲染界面。
+加入一个示例方法 index 界面
