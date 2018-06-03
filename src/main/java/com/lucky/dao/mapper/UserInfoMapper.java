@@ -17,4 +17,11 @@ public interface UserInfoMapper {
      * @param userId
      */
     public UserInfo selectUserById(Long userId);
+
+    /**
+     * 新建用户
+     * @param userInfo
+     * @return
+     */
+    public int addUserInfo(UserInfo userInfo);
 }

@@ -17,17 +17,15 @@
 
     <!--根据id查询用户-->
     <select id="selectUserById" parameterType="Long" resultMap="getUser">
-        SELECT
-        user_id,
-        username,
-        email,
-        mobile,
-        update_time
-        FROM
-        user_info
-        WHERE
-        user_id = #{userId}
+        SELECT user_id, username, email, mobile, update_time
+        FROM user_info
+        WHERE user_id = #{userId}
     </select>
+
+    <insert id="addUserInfo" parameterType="com.lucky.pojo.UserInfo">
+        INSERT INTO user_info (username, password, email, mobile, update_time)
+        VALUES (#{username}, #{password}, #{email}, #{mobile}, #{updateTime})
+    </insert>
 
 
 </mapper>

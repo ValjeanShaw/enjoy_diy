@@ -1,6 +1,7 @@
 package com.lucky.controller;
 
 import com.lucky.exception.BaseException;
+import com.lucky.model.input.UserAddInput;
 import com.lucky.model.output.UserGetByIdOutput;
 import com.lucky.service.UserService;
 import io.swagger.annotations.Api;
@@ -9,6 +10,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,11 +37,36 @@ public class UserController {
     })
     @RequestMapping(value="/{id}", method= RequestMethod.GET)
     public UserGetByIdOutput getUserById(@PathVariable Long id) throws Exception{
-        log.info("入参：{}",id);
+        log.info("getUserById 入参：{}",id);
         try{
             return userService.getUserById(id);
         }catch (Exception e){
             throw new BaseException(e.getMessage());
         }
     }
+
+
+    @ApiOperation(value="添加用户信息", notes="添加用户信息  restful的post方法")
+    @RequestMapping(value="/", method= RequestMethod.POST)
+    public void addUserInfo(@ModelAttribute UserAddInput input) throws Exception{
+        log.info("addUserInfo 入参： {}",input);
+        try{
+            userService.addUserInfo(input);
+        }catch (Exception e){
+            throw new BaseException(e.getMessage());
+        }
+    }
+
+
+    @ApiOperation(value="添加用户信息", notes="添加用户信息  restful的post方法")
+    @RequestMapping(value="/{id}", method= RequestMethod.POST)
+    public void addUserInfo(@ModelAttribute UserAddInput input,@PathVariable(value = "id") Long id) throws Exception{
+        log.info("addUserInfo 入参： {}",input);
+        try{
+            userService.addUserInfoForRollBack(input);
+        }catch (Exception e){
+            throw new BaseException(e.getMessage());
+        }
+    }
+
 }

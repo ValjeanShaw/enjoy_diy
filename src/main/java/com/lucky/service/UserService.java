@@ -1,7 +1,9 @@
 package com.lucky.service;
 
 import com.lucky.exception.BaseException;
+import com.lucky.model.input.UserAddInput;
 import com.lucky.model.output.UserGetByIdOutput;
+import com.lucky.pojo.UserInfo;
 
 /**
  * @author 600006
@@ -15,4 +17,10 @@ public interface UserService {
      * @return
      */
     public UserGetByIdOutput getUserById(Long userId) throws BaseException;
+
+    public Boolean addUserInfo(UserAddInput input) throws BaseException;
+
+    public Boolean addUserInfoForRollBack(UserAddInput input) throws BaseException;
+
+
 }

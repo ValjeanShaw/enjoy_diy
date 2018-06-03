@@ -30,7 +30,11 @@ public class GlobalExceptionHandler {
     public ErrorInfo<String> jsonErrorHandler(HttpServletRequest req, BaseException e) throws Exception {
         ErrorInfo<String> r = new ErrorInfo<>();
         r.setMessage(e.getMessage());
-        r.setCode(ErrorInfo.ERROR);
+        if(e.getCode() == null){
+            r.setCode(ErrorInfo.ERROR);
+        }else{
+            r.setCode(e.getCode());
+        }
         r.setData("异常");
         r.setUrl(req.getRequestURL().toString());
         return r;
