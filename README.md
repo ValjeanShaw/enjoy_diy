@@ -84,3 +84,5 @@ spring boot 2.0集成 redis，需要以下三步
 2.新建配置项
 3.创建bean
 
+### spring boot读取配置文件
+
